@@ -1,0 +1,12 @@
+{
+    "db":{
+        "stock":{
+            "mysql":{
+                "host":"127.0.0.1",
+                "db_user":"stock",
+                "db_pass":"P@$$w0rd",
+                "db_name":"stock"
+            }
+        }
+    }
+}
