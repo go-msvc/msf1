@@ -20,8 +20,7 @@ CREATE TABLE IF NOT EXISTS `stock_level` (
 	PRIMARY KEY (`stock_level_id`),									<-- change to refs: PRIMARY KEY (`stock_id`, `stock_status_id`)
 	FOREIGN KEY(stock_id) REFERENCES stock(stock_id),
 	FOREIGN KEY(stock_status_id) REFERENCES stock_status(stock_status_id),
-	CONSTRAINT uniqueStockLevel UNIQUE (`stock_id`,`stock_status_id`),
-	CONSTRAINT  UNIQUE (`quantity`)									<-- get rid of this... where from??? no name too!
+	CONSTRAINT uniqueStockLevel UNIQUE (`stock_id`,`stock_status_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 */
 
@@ -35,8 +34,8 @@ CREATE TABLE IF NOT EXISTS `stock_level` (
     `date_modified` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`stock_id`, `stock_status_id`),
     INDEX date_modified_index (`date_modified`),
-    FOREIGN KEY(stock_status_id) REFERENCES stock_status(stock_status_id),
     FOREIGN KEY(stock_id) REFERENCES stock(stock_id),
+    FOREIGN KEY(stock_status_id) REFERENCES stock_status(stock_status_id),
     CONSTRAINT uniqueStockLevel UNIQUE (`stock_id`, `stock_status_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 */
